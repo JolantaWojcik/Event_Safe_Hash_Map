@@ -19,6 +19,7 @@ public class Main{
 
 		HashMap<Event.EventDesc, String> eventsMap = new HashMap<>();
 		ArrayList<Date> datesOfEvent1 = new ArrayList<Date>();
+		datesOfEvent1.add(new Date());
 		ArrayList<Date> datesOfEvent2 = new ArrayList<Date>();
 		ArrayList<Date> datesOfEvent3 = new ArrayList<Date>();
 		

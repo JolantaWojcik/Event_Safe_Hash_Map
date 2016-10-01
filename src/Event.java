@@ -33,7 +33,7 @@ public class Event {
 			return new EventDesc(name, address,datesOfEvents);
 		}
 		
-		public EventDesc setDate(String name){
+		public EventDesc setDate(ArrayList<Date> datesOfEvents){
 			return new EventDesc(name, address,datesOfEvents);
 		}
 
