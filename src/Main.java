@@ -39,9 +39,10 @@ public class Main{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Event.EventDesc e1 = new Event.EventDesc("new year party", "krk", datesOfEvent1);
-		Event.EventDesc e2 = new Event.EventDesc("christmas party", "krk", datesOfEvent2);
-		Event.EventDesc e3 = new Event.EventDesc("birthday", "krk", datesOfEvent3);
+		
+		 Event.EventDesc e1 = new Event.EventDesc("new year party", "krk", datesOfEvent1);
+		 Event.EventDesc e2 = new Event.EventDesc("christmas party", "krk", datesOfEvent2);
+		 Event.EventDesc e3 = new Event.EventDesc("birthday", "krk", datesOfEvent3);
 		
 		eventsMap.put(e1, "new year");
 		eventsMap.put(e2, "christmas");
@@ -56,6 +57,7 @@ public class Main{
 		System.out.println("###");
 		System.out.println(eventsMap.keySet());
 		System.out.println("New event one: " + e1);
+		System.out.println("Dates issue: " + e1.getDaysOfEvents());
 	}
 
 }
