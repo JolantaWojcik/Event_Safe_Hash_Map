@@ -1,18 +1,24 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class Event {
 	//(String miasto, String adres, ArrayList<java.util.Date> dniWystepowania)
 	public static final class EventDesc{
+		private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd");
 		private final String name;
 		private final String address;
-		private final ArrayList<Date> datesOfEvents;
+		private final List<Date> datesOfEvents;
+		private final Date mutableField;
 		
-		public EventDesc(String name, String address, ArrayList<Date> datesOfEvents) {
+		public EventDesc(String name, String address, List<Date> datesOfEvents) {
 			super();
 			this.name = name;
 			this.address = address;
-			this.datesOfEvents = new ArrayList<Date>(); //datesOfEvents;
+			this.mutableField = new Date();
+			this.datesOfEvents = new ArrayList<>(datesOfEvents); 
 		}
 		
 		public String getName() {
@@ -22,7 +28,7 @@ public class Event {
 			return address;
 		}
 		public ArrayList<Date> getDaysOfEvents() {
-			return datesOfEvents;
+			return new ArrayList<>(datesOfEvents);
 		}
 		
 		public EventDesc setName(String name){
@@ -32,10 +38,6 @@ public class Event {
 		public EventDesc setAddress(String address){
 			return new EventDesc(name, address,datesOfEvents);
 		}
-		
-		public EventDesc setDate(ArrayList<Date> datesOfEvents){
-			return new EventDesc(name, address,datesOfEvents);
-		}
 
 		@Override
 		public int hashCode() {
@@ -43,6 +45,7 @@ public class Event {
 			int result = 1;
 			result = prime * result + ((address == null) ? 0 : address.hashCode());
 			result = prime * result + ((datesOfEvents == null) ? 0 : datesOfEvents.hashCode());
+			result = prime * result + ((mutableField == null) ? 0 : mutableField.hashCode());
 			result = prime * result + ((name == null) ? 0 : name.hashCode());
 			return result;
 		}
@@ -66,6 +69,11 @@ public class Event {
 					return false;
 			} else if (!datesOfEvents.equals(other.datesOfEvents))
 				return false;
+			if (mutableField == null) {
+				if (other.mutableField != null)
+					return false;
+			} else if (!mutableField.equals(other.mutableField))
+				return false;
 			if (name == null) {
 				if (other.name != null)
 					return false;
@@ -76,9 +84,9 @@ public class Event {
 
 		@Override
 		public String toString() {
-			return "EventDesc [name=" + name + ", address=" + address + ", datesOfEvents=" + datesOfEvents + "]";
+			return "EventDesc [name=" + name + ", address=" + address + ", datesOfEvents=" + datesOfEvents
+			+ ", mutableField=" + mutableField + "]";
 		}
-		
 		
 	}
 }
